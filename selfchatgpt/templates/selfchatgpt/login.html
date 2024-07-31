@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <h1 id="logo">
+        <a class="logo-img" href="/"></a>
+    </h1>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'selfchatgpt/css/login.css' %}" />
+</head>
+<body>
+    <div class="login-container">
+        <h1>Aivle School</h1>
+        <h2>로그인</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">아이디</label>
+            <input type="text" name="username" id="username" placeholder="아이디를 입력해주세요." required>
+            <label for="password">비밀번호</label>
+            <input type="password" name="password" id="password" placeholder="영문/숫자 포함하여 10자리 이상 입력해주세요." required>
+            <button type="submit">LOG IN</button>
+        </form>
+        <div class="contact-info">
+            <p>회원가입이 필요하신가요?
+                <a href="{% url 'selfchatgpt:signup' %}">회원가입</a>
+            </p>
+            <p>Contact : ktaivle@kt.com</p>
+            <p><a href="#">개인정보 처리방침</a> | <a href="#">이용약관</a> | <a href="#">오픈소스라이선스</a></p>
+            <p>㈜케이티 경기도 성남시 분당구 불정로 90 (정자동) 대표자 명 : 김영섭 사업자등록번호 : 102-81-42945 통신판매업신고 : 2002-경기성남-0048</p>
+            <p>Copyright© 2022 KT Corp. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

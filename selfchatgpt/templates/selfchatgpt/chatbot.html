@@ -1,0 +1,34 @@
+<div class="chatbot-box">
+  <div class="chatbot-main">
+    <div class="chatbot-header">
+      <span></span>
+      <span>AIVLE Chatbot</span>
+      <a class="chatbot-close-btn"><span class="close-icon"></span></a>
+    </div>
+    <div class="chatbot-container">
+      <div class="container">
+        <div class="bot-msg-container">
+          <a class="bot-icon"></a>
+          <div class="bot-msg">
+            안녕하세요. 에이블봇입니다.<br />무엇을 도와드릴까요?
+          </div>
+        </div>
+        {% for message in messages %} {% if message.type == "ai" %}
+        <div class="bot-msg-container">
+          <a class="bot-icon"></a>
+          <div class="bot-msg">{{ message.content }}</div>
+        </div>
+        {% else %}
+        <div class="user-msg-container">
+          <div class="user-msg">{{ message.content }}</div>
+          <a class="user-icon"></a>
+        </div>
+        {% endif %} {% endfor %}
+      </div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="user-input" placeholder="질문을 입력해주세요." />
+      <button id="send-btn">보내기</button>
+    </div>
+  </div>
+</div>

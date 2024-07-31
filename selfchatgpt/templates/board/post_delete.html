@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글 삭제</title>
+</head>
+<body>
+    <h1>글 삭제</h1>
+    <p>정말 삭제 하실 거에요?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">삭제</button>
+    </form>
+    <a href="{% url 'board:post_detail' post_id=post.id %}">Cancel</a>
+</body>
+</html>

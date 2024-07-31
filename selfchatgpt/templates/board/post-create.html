@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+{% csrf_token %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content= "width=device-width,initial-scale=1.0">
+    <title>KT 에이블스쿨</title>
+    <link rel="stylesheet" href="{% static 'selfchatgpt/css/board.css' %}"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<header class='signup-header'>
+    <div id="head">
+        <h1 id="logo">
+            <a class="logo-img dark" href="/"></a>
+        </h1>
+    </div>
+</header>
+
+<div class="signup">
+    <div class='qna-title'><em>KT AIVLE School</em>에 대해 궁금한 점을 알려주세요</div>
+    <form action="" method="post" >
+        {% csrf_token %}
+        <div class="signup-form">
+            <h2>게시글</h2>
+            <div class='form-group'>
+                <div class='input-group'>
+                    <label for='title'>제목</label>
+                    <input type="text" name="title" id="title" placeholder="제목을 입력해주세요." class="custom_input">
+                </div>
+                <div class='input-group'>
+                    <label for='content'>문의내용</label>
+                    <textarea name="content" id="content" placeholder="질문을 입력해주세요." class="custom_textarea"></textarea>
+                </div>
+                <div><p class="tooltip">
+                    <span>*</span>문의 내용은 게시판에 등록된 후, 관리자가 회신드립니다.
+                </p></div>
+            </div>
+
+            <div class='signup-bottom'>
+                <button type="submit" id="btnApplyStd" class="register-btn">등록</button>
+            </div>
+    </form>
+
+</div>
+<div class="panel"></div>
+</div>
+
+</body>
+</html>

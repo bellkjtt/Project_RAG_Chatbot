@@ -1,0 +1,91 @@
+/* Login Page Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.login-container h1 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-container label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.login-container button {
+    background-color: #00aaff;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.login-container button:hover {
+    background-color: #008ecc;
+}
+
+.login-container .contact-info {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #777;
+    text-align: center;
+}
+
+.login-container .contact-info p {
+    margin: 5px 0;
+}
+
+.login-container .contact-info a {
+    color: #00aaff;
+    text-decoration: none;
+}
+
+.login-container .contact-info a:hover {
+    text-decoration: underline;
+}

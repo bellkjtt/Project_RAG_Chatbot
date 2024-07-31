@@ -1,0 +1,472 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: "Nanum Gothic", "Malgun Gothic", sans-serif;
+}
+
+header {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  height: 88px;
+  width: 100%;
+  opacity: 1;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+#head {
+  position: relative;
+  color: #fff;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 1040px;
+  padding: 0 32px;
+}
+
+.nav-desktop{
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-desktop>ul>li{
+  margin-right: 30px;;
+}
+
+.nav-left{
+  margin-right: 120px;
+}
+
+
+#logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 8px;
+}
+
+.logo-img {
+  display: inline-block;
+  color: transparent;
+  background-image: url("../images/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+  width: 95.2px;
+  height: 22.4px;
+}
+
+.chatbot-btn {
+  position: fixed;
+  right: 35px;
+  bottom: 35px;
+  margin-top: 0; /* 버튼 아래 마진 제거 */
+  border-radius: 100%;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
+  background-image: url("../images/chatbot-logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70% auto;
+  height: 60px;
+  width: 60px;
+  z-index: 13;
+  background-color: #fff;
+  border: 2px solid #38b8b2;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.chatbot-btn:hover {
+  background-color: #a7e2e0;
+}
+
+.chatbot-helper {
+  position: absolute;
+  bottom: 35px;
+  right: 120px;
+  color: white;
+  z-index: 13;
+  font-size: 20px;
+}
+
+.dark {
+  background-image: url("../images/logo_dark.png");
+  color: transparent;
+}
+
+.nav {
+  list-style: none;
+  padding: 0;
+}
+
+#main {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/aivle_main.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; /* 이미지의 중앙을 보이도록 함 */
+}
+
+.main-text {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 45%;
+  right: 0;
+  max-width: 1300px;
+  margin: 0 auto;
+  z-index: 11;
+  padding: 0 40px;
+  height: 148px;
+  color: white;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.main-title {
+  font-size: 74px;
+  font-weight: 800;
+  line-height: 80px;
+  text-align: center;
+  display: inline-block;
+  margin: 0;
+}
+
+.main-subtitle {
+  display: block;
+  font-size: 25px;
+  font-weight: 300;
+  letter-spacing: -0.29px;
+  margin-top: 30px;
+  line-height: 1.45;
+  clear: both;
+}
+
+nav {
+  padding: 27.2px 0 30.4px 0;
+  /* margin-right: 65px; */
+}
+
+li {
+  display: inline-block;
+}
+
+
+.header-item {
+  font-size: 20px;
+  line-height: 1.74;
+  font-weight: 800;
+  padding: 0 8px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.header-item-last{
+  padding-right: 0;
+}
+
+.nav-left .header-item{
+  padding: 0 28px;
+}
+
+.nav-right .header-item{
+  font-size: 18px;
+}
+.header-item.not-allowed {
+  cursor: not-allowed;
+}
+
+.header-item:hover {
+  color: #38b8b2;
+}
+
+.dimmed {
+  color: #414042;
+}
+
+.transparent {
+  background-color: rgba(255, 255, 255, 0.89) !important;
+  box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%) !important;
+}
+
+.panel {
+  background-color: transparent;
+}
+
+.dimmer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: background-color 0.4s ease;
+  z-index: 12;
+}
+
+
+/* 회원가입 폼 위한 css */
+.signup-header{
+  background-color: #fff;
+  width: 100%;
+  border-bottom: 1px solid #e9ebf2;
+}
+
+.signup-header span{
+  opacity: 0;
+}
+.signup{
+  /* margin-top: 88px; */
+  background-color: #f3f5f9;
+  padding: 118px 60px 60px 60px;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-title{
+  color: #414042;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 28px;
+  width: 1040px;
+}
+
+.signup>form{
+  width: 1040px;
+}
+
+.signup-form{
+  /* margin: 120px 40px; */
+  padding: 40px 40px 20px 40px;
+  background-color: #fff;
+  border: 1px solid #e9ebf2;
+  border-radius: 1.6rem;
+
+}
+
+.signup-form>h2{
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.form-group{
+  margin-top: 18px;
+  border-top: 1.6px solid rgb(197, 200, 209);
+}
+
+.input-group{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group>label{
+  font-size: 14px;
+  font-weight: 500;
+  color:  rgb(102, 102, 102);
+}
+
+.input-group>.custom_input{
+  margin-top: 8px;
+  height: 20px;
+  width: 50%;
+  padding: 12px 0;
+  border: none;
+  border-bottom: 0.8px solid rgb(197, 200, 209);
+  outline: none;
+}
+
+.signup-bottom{
+  margin-top: 40px;
+  border-top: 0.8px solid rgb(197, 200, 209);
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.signup-btn{
+  background-color: #38b8b2;
+  color: white;
+  border: none;
+  width: 21rem;
+  max-width: calc((100% - 0.8rem) / 2);
+  height: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  /* line-height: 4.8rem; */
+  padding: 0 1.2rem;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+.signup-error{
+  font-size: 12px;
+  color: rgb(207, 0, 0);
+}
+
+.signup-error>.errorlist{
+  padding: 0;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+
+/*챗봇 관련 추가 스타일링*/
+.chatbot-box {
+  position: absolute;
+  bottom: 130px;
+  right: 35px;
+  height: 60%;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Mobile Menu Styles */
+/* 모바일 메뉴 스타일 */
+.menu-toggle-btn {
+  display: none; /* PC에서는 숨기기 */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+#mobile-menu {
+  display: none; /* 기본적으로 숨김 */
+}
+
+
+@media (max-width: 942px) {
+  body {
+    overflow-x: hidden; /* 세로 스크롤바 숨김 */
+  }
+
+  .nav {
+    display: none; /* 모바일에서 기본 내비게이션 숨기기 */
+  }
+
+  .menu-toggle-btn {
+    display: block; /* 모바일에서 버튼 보이기 */
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: -webkit-linear-gradient(315deg, #2B9DB7 0%, #fff 100%);
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* 아이템들을 세로로 배치 */
+  }
+
+  .mobile-menu-item {
+    padding: 15px;
+    flex-grow: 1; /* 아이템들이 동일한 너비를 가지도록 설정 */
+  }
+
+  .mobile-menu-item a {
+    color: white;
+    text-decoration: none;
+    display: block;
+  }
+
+  .mobile-menu-item a:hover {
+    background-color: #fff;
+    padding-left : 5px;
+    padding-top : 15px;
+    padding-bottom:15px; /* 패딩을 증가시켜 크기를 조절 */
+  }
+
+  .mobile-menu.open {
+    transform: translateX(0); /* 화면 안으로 이동 */
+  }
+
+  #mobile-menu {
+    display: block; /* 모바일 뷰에서만 보이도록 설정 */
+  }
+   /* Overlay for dimming the background when menu is open */
+   .overlay {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999; /* 메뉴 바로 아래 */
+  }
+
+  .overlay.open {
+    display: block; /* 메뉴가 열리면 보이도록 설정 */
+  }
+
+  .signup-form{
+    /* margin: 120px 40px; */
+    padding: 0 0 40 40;
+    background-color: #fff;
+    border: 1px solid #e9ebf2;
+    border-radius: 1.6rem;
+  
+  }
+
+  .input-group>.custom_input{
+    margin-top: 8px;
+    height: 20px;
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 0.8px solid rgb(197, 200, 209);
+    outline: none;
+  }
+
+  .signup-btn{
+    background-color: #38b8b2;
+    color: white;
+    border: none;
+    /* width: 21rem; */
+    min-width : 150px;
+    max-width: calc((100% - 0.8rem) / 2);
+    height: 48px;
+    margin-left: auto;
+    margin-right: auto;
+    /* line-height: 4.8rem; */
+    padding: 0 1.2rem;
+    font-weight: 400;
+    font-size: 20px;
+    border-radius: 0.8rem;
+  }
+
+}
+
+/* 기본 링크 색상 변경 */
+a {
+  color: inherit; /* 부모 요소의 색상 상속 */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #38b8b2; /* 호버 시 색상 */
+}
+

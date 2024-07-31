@@ -1,0 +1,132 @@
+<!doctype html>
+{% load static %} {% csrf_token %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>KT 에이블스쿨</title>
+    <link rel="stylesheet" href="{% static 'selfchatgpt/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'selfchatgpt/css/chatbot.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div id="head">
+        <h1 id="logo">
+          <a class="logo-img" href="/"></a>
+        </h1>
+        <nav class="nav-desktop">
+          <div class="nav-left">
+            <ul class="nav">
+              <li>
+                <a
+                  class="header-item focus-chatbot-btn"
+                  href="/chatbot/"
+                  >AIVLE Bot</a
+                >
+              </li>
+              {% if user.is_authenticated %}
+              <li>
+                <a class="header-item" href="/apply/">지원하기</a>
+              </li>
+              {% endif %} {% if user.is_authenticated and user.is_superuser %}
+              <li>
+                <a class="header-item" href="/admin/selfchatgpt/"
+                  >관리자 페이지</a
+                >
+              </li>
+              {% endif %}
+              <li>
+                <a class="header-item" href="/qna/">Q&A</a>
+              </li>
+            </ul>
+          </div>
+          <div class="nav-right">
+            <ul class="nav">
+              {% if user.is_authenticated %}
+              <li>
+                <a class="header-item" href="{% url 'selfchatgpt:logout' %}"
+                  >로그아웃</a
+                >
+              </li>
+              {% else %}
+              <li>
+                <a class="header-item" href="{% url 'selfchatgpt:login' %}"
+                  >로그인</a
+                >
+              </li>
+              <li>
+                <a
+                  class="header-item header-item-last"
+                  href="/signup/"
+                  >회원가입</a
+                >
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+        <button id="menu-toggle" class="menu-toggle-btn">☰</button>
+      </div>
+    </header>
+    <div id="mobile-menu" class="mobile-menu">
+      <ul>
+        <li class="mobile-menu-item">
+          <a href="/chatbot/">AIVLE Bot</a>
+        </li>
+        {% if user.is_authenticated and user.is_superuser %}
+        <li class="mobile-menu-item">
+          <a href="/admin/selfchatgpt/">관리자 페이지</a>
+        </li>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <li class="mobile-menu-item">
+          <a href="/apply/">지원하기</a>
+        </li>
+        {% endif %}
+        <li class="mobile-menu-item">
+          <a href="/qna/">Q&A</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="mobile-menu-item">
+          <a href="{% url 'selfchatgpt:logout' %}">로그아웃</a>
+        </li>
+        {% else %}
+        <li class="mobile-menu-item">
+          <a href="{% url 'selfchatgpt:login' %}">로그인</a>
+        </li>
+        <li class="mobile-menu-item">
+          <a href="{% url 'selfchatgpt:signup' %}">회원가입</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+
+    <div id="main">
+      <div class="main-text">
+        <p class="main-title">KT AIVLE School</p>
+        <p class="main-subtitle">기업실무형 AI/DX 인재양성 프로그램</p>
+      </div>
+      <div class="panel"></div>
+    </div>
+
+    <a class="chatbot-btn"></a>
+    <div class="chatbot-app">{% include "selfchatgpt/chatbot.html" %}</div>
+  </body>
+  <script
+    type="text/javascript"
+    src="{% static 'selfchatgpt/scripts/main.js' %}"
+  ></script>
+  <script
+    type="text/javascript"
+    src="{% static 'selfchatgpt/scripts/chatbot.js' %}"
+  ></script>
+  <script
+    type="text/javascript"
+    src="{% static 'selfchatgpt/scripts/mobile.js' %}"
+  ></script>
+</html>

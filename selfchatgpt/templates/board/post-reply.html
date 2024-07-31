@@ -1,0 +1,73 @@
+<!doctype html>
+{% load static %} {% csrf_token %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>KT 에이블스쿨</title>
+    <link rel="stylesheet" href="{% static 'selfchatgpt/css/board.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="signup-header">
+      <div id="head">
+        <h1 id="logo">
+          <a class="logo-img dark" href="/"></a>
+        </h1>
+      </div>
+    </header>
+
+    <div class="signup">
+      <div class="qna-title"><em>질문</em>에 대해 친절하게 답변해주세요!</div>
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="signup-form">
+          <h2>게시글</h2>
+          <div class="form-group">
+            <div class="input-group">
+              <label for="title">제목</label>
+              <input
+                type="text"
+                value="{{ post.title }}"
+                class="custom_input"
+                disabled
+              />
+            </div>
+            <div class="input-group">
+              <label for="content">문의내용</label>
+              <textarea class="custom_textarea" disabled style="resize: none">
+{{ post.content }}</textarea
+              >
+            </div>
+            <div class="input-group">
+              <label for="content">답변</label>
+              <textarea
+                name="content"
+                id="content"
+                placeholder="답변을 입력해주세요."
+                class="custom_textarea"
+              ></textarea>
+            </div>
+            <div class="add-to-db-checkbox">
+              <input type="checkbox" name="add_to_db" id="add_to_db" /><label
+                for="add_to_db" id="checkbox-label"
+                >체크할 경우 챗봇 데이터로 추가됩니다.</label
+              >
+            </div>
+          </div>
+          <div class="signup-bottom">
+            <button type="submit" id="btnApplyStd" class="register-btn">
+              등록
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="panel"></div>
+  </body>
+</html>

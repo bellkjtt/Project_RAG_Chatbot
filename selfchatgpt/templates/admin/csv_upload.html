@@ -1,0 +1,11 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+    <h2>새로운 데이터를 업로드해주세요.</h2>
+    <h3><b>주의:</b> 반드시 'QA'라는 칼럼이 존재해야 합니다!</h3><br>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br><button type="submit" class="default">Upload</button>
+    </form>
+{% endblock %}

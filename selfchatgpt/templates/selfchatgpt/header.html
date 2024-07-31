@@ -1,0 +1,96 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'selfchatgpt/css/header.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div id="head">
+        <h1 id="logo">
+          <a class="logo-img" href="/selfchatgpt/"></a>
+        </h1>
+        <nav class="nav-desktop">
+          <div class="nav-left">
+            <ul class="nav">
+              <li>
+                <a
+                  class="header-item focus-chatbot-btn"
+                  href="/selfchatgpt/chatbot/"
+                  >AIVLE Bot</a
+                >
+              </li>
+              <li>
+                <a class="header-item" href="/admin/selfchatgpt/"
+                  >관리자 페이지</a
+                >
+              </li>
+              <li>
+                <a class="header-item" href="/selfchatgpt/qna/">Q&A</a>
+              </li>
+            </ul>
+          </div>
+          <div class="nav-right">
+            <ul class="nav">
+              {% if user.is_authenticated %}
+              <li>
+                <a class="header-item" href="{% url 'selfchatgpt:logout' %}"
+                  >로그아웃</a
+                >
+              </li>
+              {% else %}
+              <li>
+                <a class="header-item" href="{% url 'selfchatgpt:login' %}"
+                  >로그인</a
+                >
+              </li>
+              <li>
+                <a
+                  class="header-item header-item-last"
+                  href="/selfchatgpt/signup/"
+                  >회원가입</a
+                >
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+        <button id="menu-toggle" class="menu-toggle-btn">☰</button>
+      </div>
+    </header>
+    <div id="mobile-menu" class="mobile-menu">
+      <ul>
+        <li class="mobile-menu-item">
+          <a href="/selfchatgpt/chatbot/">AIVLE Bot</a>
+        </li>
+        <li class="mobile-menu-item">
+          <a href="/admin/selfchatgpt/">관리자 페이지</a>
+        </li>
+        <li>
+          <a class="mobile-menu-item" href="/selfchatgpt/qna/">Q&A</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="mobile-menu-item">
+          <a href="{% url 'selfchatgpt:logout' %}">로그아웃</a>
+        </li>
+        {% else %}
+        <li class="mobile-menu-item">
+          <a href="{% url 'selfchatgpt:login' %}">로그인</a>
+        </li>
+        <li class="mobile-menu-item">
+          <a href="{% url 'selfchatgpt:signup' %}">회원가입</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </body>
+  <script type="text/javascript" src="{% static 'selfchatgpt/scripts/main.js' %}"></script>
+  <script type="text/javascript" src="{% static 'selfchatgpt/scripts/mobile.js' %}"></script>
+</html>

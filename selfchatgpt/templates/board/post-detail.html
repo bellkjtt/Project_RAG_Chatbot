@@ -1,0 +1,61 @@
+<!doctype html>
+{% load static %} {% csrf_token %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>KT 에이블스쿨</title>
+    <link rel="stylesheet" href="{% static 'selfchatgpt/css/board.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="signup-header">
+      <div id="head">
+        <h1 id="logo">
+          <a class="logo-img dark" href="/"></a>
+        </h1>
+      </div>
+    </header>
+
+    <div class="post-detail-container">
+      <div class="post-form">
+        <h1><a>Q&A</a></h1>
+        <div class="post-group">
+          <div class="post-header">
+            <h2 class="title">제목: {{ post.title }}</h2>
+            <div class="post-subheader">
+              <h2 class="author">작성자: {{ post.author.username }}</h2>
+              <h2 class="date">{{ post.created_at }}</h2>
+            </div>
+          </div>
+          <div class="post-content">
+            <p>{{ post.content }}</p>
+          </div>
+          {% if reply != None %}
+          <div class="post-content last">
+            <p><b>답변:</b> {{ reply.content }}</p>
+          </div>
+          {% endif %}
+          <div class="post-footer">
+            <a class="post-list-btn" href="{% url 'selfchatgpt:post_list' %}"
+              >목록</a
+            >
+            {% if user.is_authenticated and user.is_superuser and reply == None %}
+            <a
+              class="post-list-btn dark-btn"
+              href="{% url 'selfchatgpt:post_reply' post_id=post.id %}"
+              >답변</a
+            >
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel"></div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>KT 에이블스쿨 챗봇</title>
+    <link rel="stylesheet" href="{% static 'selfchatgpt/css/chatbot.css' %}" />
+    <link rel="stylesheet" href="{% static 'selfchatgpt/css/aivle-bot.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="chatbot-app">{% include "selfchatgpt/chatbot.html" %}</div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const chatbotCloseBtn = document.querySelector(".chatbot-close-btn");
+      chatbotCloseBtn.href = "/";
+    });
+  </script>
+  <script
+    type="text/javascript"
+    src="{% static 'selfchatgpt/scripts/main.js' %}"
+  ></script>
+  <script
+    type="text/javascript"
+    src="{% static 'selfchatgpt/scripts/chatbot.js' %}"
+  ></script>
+</html>

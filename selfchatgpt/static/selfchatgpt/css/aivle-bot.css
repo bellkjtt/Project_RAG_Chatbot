@@ -1,0 +1,14 @@
+.chatbot-app {
+  height: 100%;
+  width: 100%;
+  background-color: dimgrey;
+  display: flex;
+  justify-content: center;
+}
+
+.chatbot-box {
+  height: 100%;
+  width: 50%;
+  opacity: 1;
+  visibility: visible;
+}

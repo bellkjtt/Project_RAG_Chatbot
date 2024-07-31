@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+{% csrf_token %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content= "width=device-width,initial-scale=1.0">
+    <title>KT 에이블스쿨</title>
+    <link rel="stylesheet" href="{% static 'selfchatgpt/css/board.css' %}"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<header class='signup-header'>
+    <div id="head">
+        <h1 id="logo">
+            <a class="logo-img dark" href="/"></a>
+        </h1>
+    </div>
+</header>
+
+<div class="post-detail-container">
+    <div class="post-form">
+        <h1><a>Q&A</a></h1>
+        <div class="post-group">
+
+        <table class="post-list-table">
+            <thead>
+            <tr class="post-list-header">
+                <th class="post-header-text">질문</th>
+                <th class="post-header-text" style="width: 140px">작성자</th>
+                <th class="post-header-text" style="width: 200px">작성일</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for post in posts %}
+                <tr class="post-table-row">
+                    <td><a href="{% url 'selfchatgpt:post_detail' post_id=post.id %}" class="table-text" style="text-align: left">{{ post.title }}</a></td>
+                    <td class="table-text" style="width: 140px; text-align: center">{{ post.author }}</td>
+                    <td class="table-text" style="width: 200px; text-align: center">{{ post.created_at|date:"Y/m/d" }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        <div class="post-list-footer">
+            {% if user.is_authenticated %}
+                <a class="post-list-btn dark-btn" href="{% url 'selfchatgpt:post_create' %}">글 작성</a>
+            {% else %}
+                <a></a>
+            {% endif %}
+        <div>
+            {% if posts.has_previous %}
+                <a class="post-list-btn" href="?p={{ posts.previous_page_number }}">이전 5개</a>
+            {% endif %}
+            {% if posts.has_next %}
+            <a class="post-list-btn" href="?p={{ posts.next_page_number }}">다음 5개</a>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="panel"></div>
+</div>
+
+</body>
+</html>

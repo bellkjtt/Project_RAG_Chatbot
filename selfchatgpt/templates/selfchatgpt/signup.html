@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load static %}
+{% csrf_token %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content= "width=device-width,initial-scale=1.0">
+    <title>KT 에이블스쿨</title>
+    <link rel="stylesheet" href="{% static 'selfchatgpt/css/style.css' %}"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<header class='signup-header'>
+    <div id="head">
+        <h1 id="logo">
+            <a class="logo-img dark" href="/">
+                <span>
+                    AIVLE
+                </span>
+            </a>
+        </h1>
+    </div>
+</header>
+
+<div class="signup">
+    <div class='signup-title'>회원가입</div>
+    <form action="" method="post" >
+        {% csrf_token %}
+        <div class="signup-form">
+            <h2>회원정보</h2>
+            <div class='form-group'>
+                <div class='input-group'>
+                    <label for='username'>아이디</label>
+                    <input type="text" name="username" id="username" placeholder="아이디를 입력해주세요." class="custom_input">
+                    {% if form.username.errors %}
+                    <div class="signup-error">
+                        {{ form.username.errors }}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class='input-group'>
+                    <label for='email'>이메일</label>
+                    <input type="email" name="email" id="email" placeholder="이메일을 입력해주세요." class="custom_input">
+                    {% if form.email.errors %}
+                    <div class="signup-error">
+                        {{ form.email.errors }}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class='input-group'>
+                    <label for=''>비밀번호</label>
+                    <input type="password" name="password1" id="password1" placeholder="영문/숫자 포함하여 10자리 이상 입력해주세요." class="custom_input">
+                    {% if form.password1.errors %}
+                    <div class="signup-error">
+                        {{ form.password1.errors }}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class='input-group'>
+                    <label for='password2'>비밀번호 확인</label>
+                    <input type="password" name="password2" id="password2" placeholder="영문/숫자 포함하여 10자리 이상 입력해주세요." class="custom_input">
+                    {% if form.password2.errors %}
+                    <div class="signup-error">
+                        {{ form.password2.errors }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+    
+            <div class='signup-bottom'>
+                <button type="submit" id="btnApplyStd" class="signup-btn">회원가입</button>
+            </div>
+    </form>
+            
+</div>
+<div class="panel"></div>
+</div>
+
+</body>
+
+{% comment %} <script type="text/javascript" src="{% static 'selfchatgpt/scripts/main.js' %}"></script> {% endcomment %}
+{% comment %} <script type="text/javascript" src="{% static 'selfchatgpt/scripts/chatbot.js' %}"></script> {% endcomment %}
+</html>

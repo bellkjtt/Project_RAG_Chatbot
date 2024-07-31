@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+{% csrf_token %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post List</title>
+    <link rel="stylesheet" href="{% static 'selfchatgpt/css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'selfchatgpt/css/chatbot.css' %}"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div id="head">
+        <h1 id="logo">
+            <a class="logo-img" href="/selfchatgpt/">AIVLE</a>
+        </h1>
+        <nav>
+            <ul id="nav">
+                <li>
+                    <a class="header-item focus-chatbot-btn" href="/selfchatgpt/chatbot/">AIVLE Bot</a>
+                </li>
+                <li>
+                    {% if user.is_superuser %}
+                    <a class="header-item" href="/admin/selfchatgpt/">관리자 페이지</a>
+                    {% else %}
+                    {% endif %}
+                </li>
+                <li>
+                    <a class="header-item" href="/qna/">Q&A</a>
+                </li>
+                <li>
+                    {% if user.is_authenticated %}
+                    <a class="header-item" href="{% url 'selfchatgpt:logout' %}">{{ user.username }}님 로그아웃</a>
+                    {% else %}
+                    <a class="header-item" href="/selfchatgpt/login/">로그인</a>
+                    {% endif %}
+                </li>
+{#                <li>#}
+{#                    {% if user.is_authenticated %}#}
+{#                    <a class="header-item" href="{% url 'selfchatgpt:update' %}">회원정보</a>#}
+{#                    {% else %}#}
+{#                    {% endif %}#}
+{#                </li>#}
+            </ul>
+        </nav>
+    </div>
+</header>
+<div id="main">
+    <div class="post-container">
+        <h1 class="post-title">{{ post.title }}</h1>
+        <p class="post-content">{{ post.content }}</p>
+        <div class="button-container">
+{#            <a href="{% url 'board:post_edit' post_id=post.id %}" class="edit-button">Edit</a>#}
+{#            <a href="{% url 'board:post_delete' post_id=post.id %}" class="delete-button">Delete</a>#}
+        </div>
+    </div>
+</div>
+
+
+<a class="chatbot-btn"></a>
+<div class="chatbot-app">{% include "selfchatgpt/chatbot.html" %}</div>
+</body>
+<script type="text/javascript" src="{% static 'board/scripts/main.js' %}"></script>
+<script type="text/javascript" src="{% static 'board/scripts/chatbot.js' %}"></script>
+</html>
